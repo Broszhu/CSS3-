@@ -1,49 +1,59 @@
 html, body {
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
-
-#table .bottom-div {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 35px;
+#table{
+    height: 100%;
+    z-index: -2;
 }
-
-#table .bottom-div li {
-    float: left;
-    position: relative;
+#table> a,
+#table>input
+{
     width: 20%;
     height: 35px;
-}
-
-#table .bottom-div li a,
-#table .bottom-div li input
-{
-    width: 100%;
-    height: 35px;
-
     line-height: 35px;
+    position: fixed;
+    bottom: 0;
 }
-#table .bottom-div li a{
-    position: absolute;
-    top: 0;
-    z-index: -1;
+#table input{
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+#table a{
     border: 1px solid darkmagenta;
     border-top: none;
     display: block;
     text-align: center;
     background: orange;
 }
-#table .bottom-div li input{
-    opacity: 0;
-    cursor: pointer;
+#input-flag1,
+#input-flag1 + a{
+    left: 0%;
 }
-#table .bottom-div li input:hover +a{
-    background-color: orangered;
+#input-flag2,
+#input-flag2 + a{
+    left: 20%;
 }
-#table .bottom-div li input:checked + a{ background: orangered; }
-#table .bottom-div li input:checked + a:after{
+#input-flag3,
+#input-flag3 + a{
+    left: 40%;
+}
+#input-flag4,
+#input-flag4 + a{
+    left: 60%;
+}
+#input-flag5,
+#input-flag5 + a{
+    left: 80%;
+}
+#table input:hover +a{
+     background-color: orangered;
+ }
+
+#table  input:checked + a{ background: orangered; }
+#table  input:checked + a:after{
     content: "";
     width:0;
     height: 0;
@@ -55,9 +65,76 @@ html, body {
     margin-left: -20px;
 }
 
-
-
-
+/*内容区域的样式*/
+.table-body,
+.table-body .table-body-list{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color:khaki ;
+    z-index: -1;
+}
+.table-body{
+    top: 0;
+    left: 0;
+    -webkit-transform:translate3D(0,0,0) ;
+    -moz-transform:translate3D(0,0,0) ;
+    -ms-transform:translate3D(0,0,0) ;
+    -o-transform:translate3D(0,0,0) ;
+    -webkit-backface-visibility: hidden;
+/*改变的是.table-body 的位置，而不是改里面的.table-body-list*/
+    -webkit-transition: all 0.6s ease-in-out;
+    -moz-transition: all 0.6s ease-in-out;
+    -ms-transition: all 0.6s ease-in-out;
+    -o-transition: all 0.6s ease-in-out;
+    transition: all 0.6s ease-in-out;
+}
+#input-flag1:checked ~ .table-body{
+    -webkit-transform: translateY(0%);
+    -moz-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+#input-flag2:checked ~ .table-body{
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+#input-flag3:checked ~ .table-body{
+    -webkit-transform: translateY(-200%);
+    -moz-transform: translateY(-200%);
+    -ms-transform: translateY(-200%);
+    -o-transform: translateY(-200%);
+    transform: translateY(-200%);
+}
+#input-flag4:checked ~ .table-body{
+    -webkit-transform: translateY(-300%);
+    -moz-transform: translateY(-300%);
+    -ms-transform: translateY(-300%);
+    -o-transform: translateY(-300%);
+    transform: translateY(-300%);
+}
+#input-flag5:checked ~ .table-body{
+    -webkit-transform: translateY(-400%);
+    -moz-transform: translateY(-400%);
+    -ms-transform: translateY(-400%);
+    -o-transform: translateY(-400%);
+    transform: translateY(-400%);
+}
+.top-flag{
+    background: orangered;
+    width: 200px;
+    height: 200px;
+    -webkit-transform: rotate(45deg);
+    position: fixed;
+    top: 0%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+}
 
 
 

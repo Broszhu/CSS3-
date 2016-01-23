@@ -40,3 +40,13 @@ border做三角形的原理
 ###checked的选择
 
 	#table .bottom-div li input:checked + a{ background: orangered; } 
+
+### backface-visibility定义元素不面向屏幕时候是否可见；
+
+	backface-visibility:visible|hidden;
+
+取值说明；
+
+- visible：背面是可见的；
+- hidden：背面是不可见的；
+
