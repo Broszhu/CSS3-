@@ -19,7 +19,7 @@ html, body {
 #table input{
     opacity: 0;
     cursor: pointer;
-    z-index: 10;
+    z-index: 999;
 }
 #table a{
     border: 1px solid darkmagenta;
@@ -27,6 +27,8 @@ html, body {
     display: block;
     text-align: center;
     background: orange;
+    z-index: 998;
+    font-size: 24px;
 }
 #input-flag1,
 #input-flag1 + a{
@@ -64,15 +66,19 @@ html, body {
     left: 50%;
     margin-left: -20px;
 }
-
-/*内容区域的样式*/
 .table-body,
 .table-body .table-body-list{
     width: 100%;
     height: 100%;
     position: relative;
-    background-color:khaki ;
-    z-index: -1;
+}
+
+/*内容区域的样式*/
+.table-body-list{
+    background: blanchedalmond;
+}
+.color-change{
+    background: #c0a16b;
 }
 .table-body{
     top: 0;
@@ -82,12 +88,11 @@ html, body {
     -ms-transform:translate3D(0,0,0) ;
     -o-transform:translate3D(0,0,0) ;
     -webkit-backface-visibility: hidden;
-/*改变的是.table-body 的位置，而不是改里面的.table-body-list*/
-    -webkit-transition: all 0.6s ease-in-out;
-    -moz-transition: all 0.6s ease-in-out;
-    -ms-transition: all 0.6s ease-in-out;
-    -o-transition: all 0.6s ease-in-out;
-    transition: all 0.6s ease-in-out;
+    -webkit-transition:all 0.5s ease-in-out;
+    -moz-transition:all 0.5s ease-in-out;
+    -ms-transition:all 0.5s ease-in-out;
+    -o-transition:all 0.5s ease-in-out;
+    transition:all 0.5s ease-in-out;
 }
 #input-flag1:checked ~ .table-body{
     -webkit-transform: translateY(0%);
@@ -135,9 +140,99 @@ html, body {
     margin-top: -100px;
     margin-left: -100px;
 }
+/*字体的设置*/
+.table-body h2{
+    font-size: 54px;
+    line-height: 50px;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+}
+.table-body p{
+    font-size: 24px;
+    line-height: 50px;
+    text-align: center;
+    width: 80%;
+    position: absolute;
+    top: 38%;
+    left: 10%;
+}
+#input-flag1:checked ~ .table-body #flag1 h2,
+#input-flag2:checked ~ .table-body #flag2 h2,
+#input-flag3:checked ~ .table-body #flag3 h2,
+#input-flag4:checked ~ .table-body #flag4 h2,
+#input-flag5:checked ~ .table-body #flag5 h2{
+    -webkit-animation: moveDown 0.5s ease-in-out 0.3s backwards;
+    -moz-animation: moveDown 0.5s ease-in-out 0.3s backwards;
+    -ms-animation: moveDown 0.5s ease-in-out 0.3s backwards;
+    -o-animation: moveDown 0.5s ease-in-out 0.3s backwards;
+    animation: moveDown 0.5s ease-in-out 0.3s backwards;
+}
+@-webkit-keyframes moveDown{
+    0%{  -webkit-transform: translateY(-40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-moz-keyframes moveDown{
+    0%{  -webkit-transform: translateY(-40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-ms-keyframes moveDown{
+    0%{  -webkit-transform: translateY(-40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-o-keyframes moveDown{
+    0%{  -webkit-transform: translateY(-40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@keyframes moveDown{
+    0%{  -webkit-transform: translateY(-40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+#input-flag1:checked ~ .table-body #flag1 p,
+#input-flag2:checked ~ .table-body #flag2 p,
+#input-flag3:checked ~ .table-body #flag3 p,
+#input-flag4:checked ~ .table-body #flag4 p,
+#input-flag5:checked ~ .table-body #flag5 p{
+    -webkit-animation: moveUp 0.5s ease-in-out 0.3s backwards;
+    -moz-animation: moveUp 0.5s ease-in-out 0.3s backwards;
+    -ms-animation: moveUp 0.5s ease-in-out 0.3s backwards;
+    -o-animation: moveUp 0.5s ease-in-out 0.3s backwards;
+    animation: moveUp 0.5s ease-in-out 0.3s backwards;
+}
+@-webkit-keyframes moveUp{
+    0%{  -webkit-transform: translateY(40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-moz-keyframes moveUp{
+    0%{  -webkit-transform: translateY(40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-ms-keyframes moveUp{
+    0%{  -webkit-transform: translateY(40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@-o-keyframes moveUp{
+    0%{  -webkit-transform: translateY(40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
+@keyframes moveUp{
+    0%{  -webkit-transform: translateY(40px);  opacity: 0;  }
+    100%{  -webkit-transform: translateY(0);  opacity: 1;  }
+}
 
-
-
-
-
-
+/*下面是响应式的代码*/
+@media screen and(max-width: 520px) {
+    .table-body h2{
+        font-size: 36px;
+    }
+    .table-body p{
+        width: 90%;
+        left: 10%;
+        font-size:16px;
+    }
+    #table >a{
+        font-size: 12px;
+    }
+}
